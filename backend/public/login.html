@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System - Sign In</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-wrap">
+  <div class="auth-hero-text">
+    <div class="headline">Welcome to the Library System</div>
+    <div class="sub">Borrow, reserve, and manage books across Student, Teacher, Librarian, and Admin roles — all in one place.</div>
+  </div>
+
+  <div class="auth-panel">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="mark">Library System</div>
+      <div class="tagline">Sign up, sign in, or reset your password</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login">Sign In</button>
+      <button class="tab-btn" data-tab="signup">Sign Up</button>
+      <button class="tab-btn" data-tab="reset">Reset</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="loginForm" class="tab-panel">
+      <label>Login as</label>
+      <select id="loginRole" required>
+        <option value="1">Student</option>
+        <option value="2">Librarian</option>
+        <option value="3">Admin</option>
+        <option value="4">Teacher</option>
+      </select>
+
+      <label>Username</label>
+      <input id="loginUsername" required>
+
+      <label>Password</label>
+      <input id="loginPassword" type="password" required>
+
+      <button type="submit" class="primary">Sign In</button>
+      <div class="msg hidden" id="loginMsg"></div>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" class="tab-panel hidden">
+      <label>Username</label>
+      <input id="signupUsername" required minlength="3">
+
+      <label>Gmail address</label>
+      <div class="otp-row">
+        <input id="signupGmail" type="email" required placeholder="you@gmail.com">
+        <button type="button" id="sendOtpBtn">Send Code</button>
+      </div>
+
+      <label>Verification code</label>
+      <input id="signupOtp" placeholder="6-digit demo code" maxlength="6">
+
+      <label>Password</label>
+      <input id="signupPassword" type="password" required>
+      <small style="color:#7a7566;">8+ chars, upper, lower, digit, special character.</small>
+
+      <label>Confirm password</label>
+      <input id="signupConfirmPassword" type="password" required>
+
+      <button type="submit" class="primary">Create Account</button>
+      <div class="msg hidden" id="signupMsg"></div>
+      <p style="font-size:12px;color:#7a7566;margin-top:10px;">
+        No role is assigned at signup. You'll choose Student, Teacher, Librarian, or Admin each time you sign in.
+      </p>
+    </form>
+
+    <!-- RESET -->
+    <form id="resetForm" class="tab-panel hidden">
+      <label>Username</label>
+      <input id="resetUsername" required>
+
+      <label>Registered Gmail</label>
+      <div class="otp-row">
+        <input id="resetGmail" type="email" required>
+        <button type="button" id="resetSendOtpBtn">Send Code</button>
+      </div>
+
+      <label>Verification code</label>
+      <input id="resetOtp" placeholder="6-digit demo code" maxlength="6" required>
+
+      <label>New password</label>
+      <input id="resetPassword" type="password" required>
+
+      <button type="submit" class="primary">Reset Password</button>
+      <div class="msg hidden" id="resetMsg"></div>
+    </form>
+
+  </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
